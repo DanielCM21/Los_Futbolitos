@@ -5,18 +5,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    bool canJump;
+    public bool canJump;
+    public bool canShoot;
+    public float Strong = 200f;
     Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer sprite;
     [SerializeField] float velocity;
     float moveH;
     bool facingRight = true;
+    private GameObject _ball;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        _ball = GameObject.FindGameObjectWithTag("ball");
     }
 
     // Update is called once per frame
@@ -31,11 +36,17 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
-        if (Input.GetKeyDown(KeyCode.Space)) animator.SetTrigger("patear");
+        
     }
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.transform.tag == "ground"){
             canJump = true;
+        }
+    }
+
+    public void Shoot(){
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true){
+            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2());
         }
     }
 
