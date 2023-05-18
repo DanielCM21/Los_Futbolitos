@@ -27,16 +27,18 @@ public class PlayerController : MonoBehaviour
         else animator.SetBool("moving", false);
         if (!facingRight && moveH > 0) flip();
         if(facingRight && moveH < 0) flip(); 
-        if (Input.GetKeyDown("up") && canJump){
+        if (Input.GetKey("up") && canJump || Input.GetKey("w") && canJump){
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
+        if (Input.GetKeyDown(KeyCode.Space)) animator.SetTrigger("patear");
     }
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.transform.tag == "ground"){
             canJump = true;
         }
     }
+
     void flip()
     {
         facingRight = !facingRight;
