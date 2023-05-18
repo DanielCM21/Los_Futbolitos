@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public bool canJump;
     public bool canShoot;
-    public float Strong = 20f;
+    public float Strong = 0.22f;
     Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer sprite;
@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
+        if (Input.GetKeyDown(KeyCode.Space)) animator.SetBool("kick", true);
+        else animator.SetBool("kick", false);
         Shoot();
         
     }
@@ -46,9 +48,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Shoot(){
-        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && gameObject.transform.position.x<_ball.transform.position.x){
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && transform.position.x<_ball.transform.position.x){
             _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(Strong/2, Strong), ForceMode2D.Impulse);
-        }else if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && gameObject.transform.position.x>_ball.transform.position.x){
+        }else if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && transform.position.x>_ball.transform.position.x){
             _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-Strong/2, Strong), ForceMode2D.Impulse);
         }
     }

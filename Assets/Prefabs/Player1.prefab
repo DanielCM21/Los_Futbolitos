@@ -104,8 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   canShoot: 0
-  Strong: 20
-  velocity: 60
+  Strong: 0.22
+  velocity: 70
 --- !u!50 &4017334510302408612
 Rigidbody2D:
   serializedVersion: 4

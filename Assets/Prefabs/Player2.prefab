@@ -151,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   canShoot: 0
-  Strong: 20
-  velocity: 60
+  Strong: 0.22
+  velocity: 70
 --- !u!95 &85666936009449818
 Animator:
   serializedVersion: 4
