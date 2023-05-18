@@ -102,7 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6976cdd76bfe6ab488c83b2315de736b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canJump: 0
   canShoot: 0
+  Strong: 20
   velocity: 60
 --- !u!50 &4017334510302408612
 Rigidbody2D:

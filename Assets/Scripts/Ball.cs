@@ -5,23 +5,25 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {   
     private GameObject _player;
+    private PlayerController playerController;
     void Start(){
         _player = GameObject.FindGameObjectWithTag("player");
+        playerController = _player.GetComponent<PlayerController>();
     }
 
     void Update(){
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag == "player"){
-            _player.GetComponent<PlayerController>().canShoot = true;
+            playerController.canShoot = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision){
         if (collision.gameObject.tag == "player"){
-            _player.GetComponent<PlayerController>().canShoot = false;
+            playerController.canShoot = false;
         }
     }
 }

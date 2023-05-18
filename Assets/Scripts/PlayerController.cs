@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public bool canJump;
     public bool canShoot;
-    public float Strong = 200f;
+    public float Strong = 20f;
     Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer sprite;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update(){
         moveH = Input.GetAxis("Horizontal");
-        rigid.velocity = new Vector2(moveH* velocity, rigid.velocity.y );
+        rigid.velocity = new Vector2(moveH * velocity, rigid.velocity.y );
         if (moveH != 0) animator.SetBool("moving", true);
         else animator.SetBool("moving", false);
         if (!facingRight && moveH > 0) flip();
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
+        Shoot();
         
     }
     private void OnCollisionEnter2D(Collision2D collision){
@@ -45,8 +46,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Shoot(){
-        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true){
-            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2());
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && gameObject.transform.position.x<_ball.transform.position.x){
+            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(Strong/2, Strong), ForceMode2D.Impulse);
+        }else if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && gameObject.transform.position.x>_ball.transform.position.x){
+            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-Strong/2, Strong), ForceMode2D.Impulse);
         }
     }
 

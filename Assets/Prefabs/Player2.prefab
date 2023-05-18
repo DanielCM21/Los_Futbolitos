@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 85666936009449821}
   - component: {fileID: 85666936009449818}
   - component: {fileID: 8472220873207958454}
+  - component: {fileID: 6040131225657689564}
   m_Layer: 0
   m_Name: Player2
   m_TagString: player
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1691885, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.3333335, y: 17.666666}
+  m_Size: {x: 4.964731, y: 17.666666}
   m_EdgeRadius: 0
 --- !u!114 &85666936009449821
 MonoBehaviour:
@@ -148,6 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6976cdd76bfe6ab488c83b2315de736b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canJump: 0
+  canShoot: 0
+  Strong: 20
   velocity: 60
 --- !u!95 &85666936009449818
 Animator:
@@ -188,3 +192,19 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!58 &6040131225657689564
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85666936009449792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.82, y: -6.57}
+  serializedVersion: 2
+  m_Radius: 2
