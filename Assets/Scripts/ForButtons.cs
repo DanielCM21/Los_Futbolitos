@@ -14,19 +14,22 @@ public class ForButtons : MonoBehaviour
 	[SerializeField] TMP_InputField ip;
 
 	[SerializeField] string ipAddress;
+	Ball ball;
 	[SerializeField] UnityTransport transport;
+
 
 	void Start()
 	{
 		ipAddress = "0.0.0.0";
 		SetIpAddress(); // Set the Ip to the above address
-		
+		ball = GameObject.FindGameObjectWithTag("ball").GetComponent<Ball>();
 		InvokeRepeating("assignPlayerController", 0.1f, 0.1f);
 	}
 
 	// To Host a game
 	public void StartHost() {
 		NetworkManager.Singleton.StartHost();
+		ball._player = GameObject.FindGameObjectWithTag("player");
 		GetLocalIPAddress();
 	}
 

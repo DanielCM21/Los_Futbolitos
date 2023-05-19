@@ -17,15 +17,12 @@ public class Timer : MonoBehaviour
             timer -= Time.deltaTime;
             textoTimer.text = ""+timer.ToString("f0");
 
-       
-
         }
         if (timer <= 0)
         {
             Time.timeScale= 0f;
-            
+
         }
     }
-
 
 }

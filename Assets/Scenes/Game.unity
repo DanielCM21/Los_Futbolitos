@@ -619,7 +619,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: '00
+
+'
 --- !u!222 &404533300
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -640,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f69df4ee10cd2d41b63af80eb4cc8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
+  timer: 99
   textoTimer: {fileID: 404533299}
 --- !u!1 &454914227
 GameObject:
@@ -1311,6 +1313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842982412}
+  - component: {fileID: 842982414}
   - component: {fileID: 842982413}
   m_Layer: 0
   m_Name: Network Manager
@@ -1361,6 +1364,43 @@ MonoBehaviour:
     PacketDelayMS: 0
     PacketJitterMS: 0
     PacketDropRate: 0
+--- !u!114 &842982414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842982409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RunInBackground: 1
+  LogLevel: 1
+  NetworkConfig:
+    ProtocolVersion: 0
+    NetworkTransport: {fileID: 842982413}
+    PlayerPrefab: {fileID: 4017334510302408608, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
+    Prefabs:
+      NetworkPrefabsLists:
+      - {fileID: 11400000, guid: 764cf4ad4d3c8eb4ebf6b940db619500, type: 2}
+    TickRate: 30
+    ClientConnectionBufferTimeout: 10
+    ConnectionApproval: 0
+    ConnectionData: 
+    EnableTimeResync: 0
+    TimeResyncInterval: 30
+    EnsureNetworkVariableLengthSafety: 0
+    EnableSceneManagement: 1
+    ForceSamePrefabs: 1
+    RecycleNetworkIds: 1
+    NetworkIdRecycleDelay: 120
+    RpcHashSize: 0
+    LoadSceneTimeOut: 120
+    SpawnTimeout: 1
+    EnableNetworkLogs: 1
+    OldPrefabList: []
 --- !u!1 &905907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2319,6 @@ GameObject:
   - component: {fileID: 1256051704}
   - component: {fileID: 1256051706}
   - component: {fileID: 1256051705}
-  - component: {fileID: 1256051708}
   - component: {fileID: 1256051707}
   m_Layer: 5
   m_Name: Marcador - Left
@@ -2415,18 +2454,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 545ef5b9793859c458636938147ac748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1256051708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256051703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c5c4f713a1b854ca295a572bd2e77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1368811977
@@ -3029,67 +3056,6 @@ Transform:
   m_Father: {fileID: 1143197773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2003705973
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -7157115382609491809, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 238914979
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408608, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_Name
-      value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -35.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4017334510302408610, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 30f3243cb04a33842b5d1d5b611c5690, type: 3}
 --- !u!1 &2007935454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,6 +3427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6260a7c04f72429449f98b1dd79f8016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   Cordenadas_ball: {fileID: 1856187727}
   Cordenadas_PJ1: {fileID: 1992247284}
   Marcador_derecha: {fileID: 1256051707}
@@ -3513,7 +3480,7 @@ MonoBehaviour:
   SyncPositionZ: 1
   SyncRotAngleX: 0
   SyncRotAngleY: 0
-  SyncRotAngleZ: 0
+  SyncRotAngleZ: 1
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0
@@ -3524,7 +3491,7 @@ MonoBehaviour:
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
-  Interpolate: 1
+  Interpolate: 0
   SlerpPosition: 0
 --- !u!1 &2085823829
 GameObject:

@@ -6,7 +6,7 @@ using Unity.Netcode;
 
 public class Ball : NetworkBehaviour
 {   
-    private GameObject _player;
+    public GameObject _player;
     private PlayerController playerController;
     Rigidbody2D rigid;
     [SerializeField] private GameObject Cordenadas_ball;
@@ -14,7 +14,7 @@ public class Ball : NetworkBehaviour
     [SerializeField] private Marcadores Marcador_derecha;
     [SerializeField] private Marcadores Marcador_izquierda;
     void Start(){
-        _player = GameObject.FindGameObjectWithTag("player");
+        
         playerController = _player.GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
 
