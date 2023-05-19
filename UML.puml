@@ -1,0 +1,81 @@
+@startuml
+
+
+
+[Main Camera]
+[Background]
+
+package "Screen hit-box" {
+  [Roof]
+  [Wall_R]
+  [Wall_L]
+  [Ground]
+  [MarcadorUI]
+}
+package "Coords" {
+[Coords_ball]
+  [Coords_PJ1]
+
+}
+
+package "Objets" {
+[ball]
+}
+
+package "Arcos" {
+[SoccerGoal_Left]
+[SoccerGoal_Right]
+[Goal_right]
+[Goal_left]
+}
+
+package "Canvas" {
+[Timer]
+package "Marcador" {
+[Marcador - Right]
+[Marcador - Left]
+}
+[IP]
+[escribir IP]
+[host]
+[client]
+
+}
+
+[Network_Manager]
+
+node "Game Object" {
+[UI] --|> [Background]
+[Camera] --|> [Main Camera]
+[Collider] --|> [Roof]
+[Collider] --|> [Wall_R]
+[Collider] --|> [Wall_L]
+[Collider] --|> [Ground]
+[Collider] --|> [MarcadorUI]
+[Transform] --|> [Coords_ball]
+[Transform] --|> [Coords_PJ1]
+[Network_Object] --|> [ball]
+[Collider] --|> [SoccerGoal_Right]
+[Collider] --|> [SoccerGoal_Left]
+[Triger] --|> [Goal_right]
+[Triger] --|> [Goal_left]
+[UI] --|> [Timer]
+[UI] --|> [Marcador - Right]
+[UI] --|> [Marcador - Left]
+[UI button] --|> host
+[UI button] --|> client
+[Network_Object] --|> [Network_Manager]
+
+}
+
+
+cloud {
+  [LAN Game]
+}
+
+
+
+[Network_Manager] --> [LAN Game]
+
+
+@enduml
