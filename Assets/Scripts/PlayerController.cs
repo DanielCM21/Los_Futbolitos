@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour 
 {
     // Start is called before the first frame update
     public bool canJump;
     public bool canShoot;
-    public float Strong = 0.22f;
+    public float Strong = 0.4f;
     Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer sprite;
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+
+        if (!IsOwner) return;
+
         moveH = Input.GetAxis("Horizontal");
         rigid.velocity = new Vector2(moveH * velocity, rigid.velocity.y );
         if (moveH != 0) animator.SetBool("moving", true);
@@ -36,10 +40,18 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
-        if (Input.GetKeyDown(KeyCode.Space)) animator.SetBool("kick", true);
+        if (Input.GetKeyDown(KeyCode.C)) animator.SetBool("kick", true);
         else animator.SetBool("kick", false);
-        Shoot();
-        
+
+        if(Input.GetKeyDown(KeyCode.X)) animator.SetBool("kick", true);
+        else animator.SetBool("kick", false);
+
+        if (Input.GetKeyDown(KeyCode.C)){
+        ShootA();
+        }
+        if (Input.GetKeyDown(KeyCode.X)){
+        ShootB();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.transform.tag == "ground"){
@@ -47,11 +59,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Shoot(){
-        if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && transform.position.x<_ball.transform.position.x){
+    public void ShootA(){
+        if (canShoot == true && transform.position.x<_ball.transform.position.x){
             _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(Strong/2, Strong), ForceMode2D.Impulse);
-        }else if (Input.GetKeyDown(KeyCode.Space) && canShoot == true && transform.position.x>_ball.transform.position.x){
+        }else if (canShoot == true && transform.position.x>_ball.transform.position.x){
             _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-Strong/2, Strong), ForceMode2D.Impulse);
+        }
+    }
+
+    public void ShootB(){
+        if (canShoot == true && transform.position.x<_ball.transform.position.x){
+            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(Strong/2, 0), ForceMode2D.Impulse);
+        }else if (canShoot == true && transform.position.x>_ball.transform.position.x){
+            _ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-Strong/2, 0), ForceMode2D.Impulse);
         }
     }
 
