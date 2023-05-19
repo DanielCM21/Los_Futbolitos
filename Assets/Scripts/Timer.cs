@@ -12,11 +12,18 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        textoTimer.text = ""+timer.ToString("f0");
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            textoTimer.text = ""+timer.ToString("f0");
 
-        if (timer == 0){
-            SceneManager.LoadScene("Game");
+       
+
+        }
+        if (timer <= 0)
+        {
+            Time.timeScale= 0f;
+            
         }
     }
 
