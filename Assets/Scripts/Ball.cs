@@ -45,7 +45,6 @@ public class Ball : NetworkBehaviour
             rigid.angularVelocity = 0;
             Marcador_izquierda.SumarPuntaje();
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision){
