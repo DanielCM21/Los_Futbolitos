@@ -8,6 +8,8 @@ TagManager:
   - ball
   - player
   - patada
+  - Goal_right
+  - Goal_left
   layers:
   - Default
   - TransparentFX
