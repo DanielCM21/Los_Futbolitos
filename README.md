@@ -7,7 +7,7 @@ Juego de futbol multiplayer online.
 - Multiplayer Tools.
 ## ¿Como usarlo?
 - Descargar Unity (https://unity.com/es/download)
-- Instalar Git para clonar este repositorio.
+- Instalar Git para clonar este repositorio (https://github.com/DanielCM21/Los_Futbolitos.git).
 - Una vez clonado,  usar Build and Run para probar el juego.
 - Para poder conectar 2 jugadores es necesario que ambos ordenadores esten conectados a la misma red wifi y usen la misma IP.
 - El siguente paso consiste en que un jugador decida ser el host, el host tendra asignada una IP que debe ser escrita por el cliente (en este caso sera el segundo jugador).
