@@ -28,7 +28,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update(){
 
-
+        //if (!IsOwner) return;
 
         moveH = Input.GetAxis("Horizontal");
         rigid.velocity = new Vector2(moveH * velocity, rigid.velocity.y );
@@ -40,11 +40,9 @@ public class PlayerController : NetworkBehaviour
             canJump = false;
             rigid.AddForce(new Vector2(0, 150f));
         }
-        if (Input.GetKeyDown(KeyCode.C)) animator.SetBool("kick", true);
-        else animator.SetBool("kick", false);
-
-        if(Input.GetKeyDown(KeyCode.X)) animator.SetBool("kick", true);
-        else animator.SetBool("kick", false);
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.X)) {
+            animator.SetBool("kick", true);
+            } else animator.SetBool("kick", false);
 
         if (Input.GetKeyDown(KeyCode.C)){
         ShootA();
