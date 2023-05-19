@@ -28,7 +28,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update(){
 
-        if (!IsOwner) return;
+
 
         moveH = Input.GetAxis("Horizontal");
         rigid.velocity = new Vector2(moveH * velocity, rigid.velocity.y );
